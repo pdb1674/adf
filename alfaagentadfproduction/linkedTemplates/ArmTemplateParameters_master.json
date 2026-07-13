@@ -17,10 +17,10 @@
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"value": "agent19"
 		},
-		"trigger1_properties_pipeline_parameters_pstartdate": {
+		"trigger3_properties_pipeline_parameters_pstartdate": {
 			"value": "@trigger().outputs.windowstarttime"
 		},
-		"trigger1_properties_pipeline_parameters_penddate": {
+		"trigger3_properties_pipeline_parameters_penddate": {
 			"value": "@trigger().outputs.windowendtime"
 		},
 		"containerUri": {

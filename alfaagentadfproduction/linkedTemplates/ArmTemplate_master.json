@@ -23,11 +23,11 @@
 			"type": "string",
 			"defaultValue": "agent19"
 		},
-		"trigger1_properties_pipeline_parameters_pstartdate": {
+		"trigger3_properties_pipeline_parameters_pstartdate": {
 			"type": "string",
 			"defaultValue": "@trigger().outputs.windowstarttime"
 		},
-		"trigger1_properties_pipeline_parameters_penddate": {
+		"trigger3_properties_pipeline_parameters_penddate": {
 			"type": "string",
 			"defaultValue": "@trigger().outputs.windowendtime"
 		},
@@ -70,11 +70,11 @@
 					"AzureSqlDatabase1_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
 					},
-					"trigger1_properties_pipeline_parameters_pstartdate": {
-						"value": "[parameters('trigger1_properties_pipeline_parameters_pstartdate')]"
+					"trigger3_properties_pipeline_parameters_pstartdate": {
+						"value": "[parameters('trigger3_properties_pipeline_parameters_pstartdate')]"
 					},
-					"trigger1_properties_pipeline_parameters_penddate": {
-						"value": "[parameters('trigger1_properties_pipeline_parameters_penddate')]"
+					"trigger3_properties_pipeline_parameters_penddate": {
+						"value": "[parameters('trigger3_properties_pipeline_parameters_penddate')]"
 					}
 				}
 			},
