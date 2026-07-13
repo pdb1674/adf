@@ -23,11 +23,11 @@
 			"type": "string",
 			"defaultValue": "agent19"
 		},
-		"trigger4tumbling_properties_pipeline_parameters_pstartdate": {
+		"trigger7_properties_pipeline_parameters_pstartdate": {
 			"type": "string",
 			"defaultValue": "@trigger().outputs.windowstarttime"
 		},
-		"trigger4tumbling_properties_pipeline_parameters_penddate": {
+		"trigger7_properties_pipeline_parameters_penddate": {
 			"type": "string",
 			"defaultValue": "@trigger().outputs.windowendtime"
 		}
@@ -174,28 +174,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"server": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]",
-					"database": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]",
-					"encrypt": "mandatory",
-					"trustServerCertificate": true,
-					"authenticationType": "SQL",
-					"userName": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('AzureSqlDatabase1_password')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -255,29 +233,51 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/trigger4tumbling')]",
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]",
+					"database": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": true,
+					"authenticationType": "SQL",
+					"userName": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('AzureSqlDatabase1_password')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger7')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipeline": {
 					"pipelineReference": {
 						"referenceName": "tumblingwindow",
 						"type": "PipelineReference"
 					},
 					"parameters": {
-						"pstartdate": "[parameters('trigger4tumbling_properties_pipeline_parameters_pstartdate')]",
-						"penddate": "[parameters('trigger4tumbling_properties_pipeline_parameters_penddate')]"
+						"pstartdate": "[parameters('trigger7_properties_pipeline_parameters_pstartdate')]",
+						"penddate": "[parameters('trigger7_properties_pipeline_parameters_penddate')]"
 					}
 				},
 				"type": "TumblingWindowTrigger",
 				"typeProperties": {
-					"frequency": "Hour",
-					"interval": 12,
-					"startTime": "2026-07-01T08:37:00Z",
+					"frequency": "Minute",
+					"interval": 5,
+					"startTime": "2026-07-01T09:02:00Z",
 					"delay": "00:00:00",
-					"maxConcurrency": 50,
+					"maxConcurrency": 10,
 					"retryPolicy": {
 						"intervalInSeconds": 30
 					},

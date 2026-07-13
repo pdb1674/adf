@@ -23,11 +23,11 @@
 			"type": "string",
 			"defaultValue": "agent19"
 		},
-		"trigger4tumbling_properties_pipeline_parameters_pstartdate": {
+		"trigger7_properties_pipeline_parameters_pstartdate": {
 			"type": "string",
 			"defaultValue": "@trigger().outputs.windowstarttime"
 		},
-		"trigger4tumbling_properties_pipeline_parameters_penddate": {
+		"trigger7_properties_pipeline_parameters_penddate": {
 			"type": "string",
 			"defaultValue": "@trigger().outputs.windowendtime"
 		},
@@ -70,11 +70,11 @@
 					"AzureSqlDatabase1_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
 					},
-					"trigger4tumbling_properties_pipeline_parameters_pstartdate": {
-						"value": "[parameters('trigger4tumbling_properties_pipeline_parameters_pstartdate')]"
+					"trigger7_properties_pipeline_parameters_pstartdate": {
+						"value": "[parameters('trigger7_properties_pipeline_parameters_pstartdate')]"
 					},
-					"trigger4tumbling_properties_pipeline_parameters_penddate": {
-						"value": "[parameters('trigger4tumbling_properties_pipeline_parameters_penddate')]"
+					"trigger7_properties_pipeline_parameters_penddate": {
+						"value": "[parameters('trigger7_properties_pipeline_parameters_penddate')]"
 					}
 				}
 			},
