@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "alfaagentadfproduction"
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "alfaagent19.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "sampledb"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "agent19"
+		},
+		"trigger1_properties_pipeline_parameters_pstartdate": {
+			"value": "@trigger().outputs.windowstarttime"
+		},
+		"trigger1_properties_pipeline_parameters_penddate": {
+			"value": "@trigger().outputs.windowendtime"
+		}
+	}
+}
